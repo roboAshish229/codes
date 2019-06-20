@@ -1,0 +1,36 @@
+#include<stdio.h>
+void pairsum(int arr[], int n, int sum){
+    int i=0, j=n-1;
+    while(i<j){
+        while((arr[i] + arr[j]) > sum)
+            j--;
+        //printf("%d is the jth position\n", j);
+        while((arr[i] + arr[j])< sum)
+            i++;
+        //printf("%d is the ith position\n", i);
+        if((arr[i] + arr[j]) == sum){
+            printf("YES\n");
+            return ;
+        }
+        //printf("%d is the sum \n", arr[i] + arr[j]);
+    }
+    printf("NO\n");
+}
+int main() {
+	//code
+	int t;
+	scanf("%d",&t);
+	while(t--){
+	    int n;
+	    scanf("%d",&n);
+	    int arr[n];
+	    for(int i=0;i<n;i++){
+	        scanf("%d", &arr[i]);
+	    }
+	    int sum;
+	    scanf("%d",&sum);
+	    pairsum(arr, n, sum);
+	}
+	
+	return 0;
+}
