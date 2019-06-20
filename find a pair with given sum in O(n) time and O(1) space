@@ -2,17 +2,14 @@
 void pairsum(int arr[], int n, int sum){
     int i=0, j=n-1;
     while(i<j){
-        while((arr[i] + arr[j]) > sum)
-            j--;
-        //printf("%d is the jth position\n", j);
-        while((arr[i] + arr[j])< sum)
-            i++;
-        //printf("%d is the ith position\n", i);
-        if((arr[i] + arr[j]) == sum){
+    	if((arr[i] + arr[j]) == sum){
             printf("YES\n");
             return ;
-        }
-        //printf("%d is the sum \n", arr[i] + arr[j]);
+	    }
+        while((arr[i] + arr[j]) > sum)
+            j--;
+        while((arr[i] + arr[j])< sum)
+            i++;
     }
     printf("NO\n");
 }
