@@ -1,0 +1,73 @@
+{
+#include <bits/stdc++.h>
+using namespace std;
+void linearProbing(int hash[],int hashSize,int arr[],int sizeOfArray);
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int hashSize;
+	    cin>>hashSize;
+	    int hash[hashSize];
+	    
+	    
+	    int  sizeOfArray;
+	    cin>>sizeOfArray;
+	    int arr[sizeOfArray];
+	    
+	    for(int i=0;i<sizeOfArray;i++)
+	    cin>>arr[i];
+	    
+	    
+	    
+	    for(int i=0;i<hashSize;i++)
+	    hash[i]=-1;
+	    
+	    linearProbing( hash, hashSize, arr, sizeOfArray);
+	    
+	    for(int i=0;i<hashSize;i++)
+	    cout<<hash[i]<<" ";
+	    
+	    cout<<endl;
+	    
+	    
+	}
+	return 0;
+}
+}
+/*This is a function problem.You only need to complete the function given below*/
+//Complete this function
+void linearProbing(int hash[],int hashSize,int arr[],int sizeOfArray)
+{
+    //Your code here
+    int flag = 0, count =0, i=0;
+    while(i<sizeOfArray && count <= hashSize){
+        int p = arr[i] % hashSize;
+        flag = 0;
+        if(hash[p] == -1){
+            hash[p] = arr[i];
+            count++;
+        }
+        else{
+            for(int j=p+1;j<hashSize;j++){
+                if(hash[j] == -1){
+                    hash[j] = arr[i];
+                    flag = 1;
+                    count++;
+                    break;
+                }
+            }
+           if(flag == 0){
+               for(int j=0;j<p;j++){
+                   if(hash[j] == -1){
+                        hash[j] = arr[i];
+                        count++;
+                        break;
+                   }
+               }
+           } 
+        }
+        i++;
+    }
+}
