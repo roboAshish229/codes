@@ -1,0 +1,54 @@
+//Initial Template for C++
+#include <bits/stdc++.h>
+using namespace std;
+int checkequalarray(int arr1[], int arr2[], int n);
+//Position this line where user code will be pasted.
+int main() {
+	
+	int T;
+	cin >> T;
+	
+	while(T--){
+    
+	    int N;
+	    cin >>N;
+	    
+	    int arr1[N];
+	    int arr2[N];
+	    
+	    for(int i = 0;i<N;i++){
+	        cin >> arr1[i];
+	    }
+	    
+	    for(int i = 0;i<N;i++){
+	        cin >> arr2[i];
+	    }
+	    
+	    cout<<checkequalarray(arr1,arr2, N)<<endl;
+	    
+	    
+	}
+	
+	return 0;
+}
+
+/*This is a function problem.You only need to complete the function given below*/
+//User function Template for C++
+//You need to complete this function, Geeks
+int checkequalarray(int arr1[], int arr2[], int n)
+{
+   //Your code here.
+   unordered_set<int> s;
+   for(int i=0;i<n;i++){
+        s.insert(arr1[i]);
+   }
+   
+   for(int i=0;i<n;i++)
+   {
+       if(s.find(arr2[i]) == s.end())
+            return 0;
+   }
+   return 1;
+   
+   
+}
