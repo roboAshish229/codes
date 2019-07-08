@@ -1,0 +1,59 @@
+
+#include <iostream>
+#include <map>
+#include <algorithm>
+#include <cstdlib>
+#include<bits/stdc++.h>
+using namespace std;
+void winner(string arr[],int n);
+int main()
+{
+    int t;
+    cin>>t;
+    
+    for(int i=0;i<t;i++)
+    {
+        
+        
+        int n;
+        cin>>n;
+        
+        string arr[n];
+        
+        for (int i=0;i<n;i++)
+        cin>>arr[i];
+        
+        winner(arr,n);
+        
+        cout<<endl;
+        
+        
+    }
+    return 0;
+}
+
+/*This is a function problem.You only need to complete the function given below*/
+// Funtion to find winner
+// arr[]: input array
+// n: size of array
+void winner(string arr[],int n)
+{
+    //Your code here
+    map<string , int> s;
+    for(int i=0;i<n;i++){
+        s[arr[i]]++;
+    }
+    int maxx = 0;
+    string str;
+    for(auto it=s.begin();it!=s.end();it++) 
+        { 
+            if(it->second>maxx) 
+            { 
+                maxx=it->second; 
+                str =it->first; 
+            } 
+  
+        } 
+          
+        cout<<str<<" "<<s[str];    
+} 
