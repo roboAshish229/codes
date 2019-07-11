@@ -1,0 +1,31 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+bool areRotations(string, string);
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s1;
+        string s2;
+        cin>>s1>>s2;
+        cout<<areRotations(s1,s2)<<endl;
+    }
+    return 0;
+}
+
+bool areRotations(string s1,string s2)
+{
+    // Your code here
+    if(s1.length() != s2.length()){
+        return false;
+    }
+    string str3 = s1 + s1;
+    size_t found = str3.find(s2);
+    if(found != string::npos){
+        return true;
+    }
+    return false;
+}
