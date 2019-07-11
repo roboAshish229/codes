@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+//Position this line where user code will be pasted.
+
+bool isAnagram(string c, string d){
+    // Your code here
+    if(c.length() != d.length())
+        return false;
+    int *count = (int *)calloc(256, sizeof(int));
+    for(int i=0;i<c.length();i++){
+        count[c[i]]++;
+        count[d[i]]--;
+    }
+    
+    for(int i=0;i<256;i++){
+        if(count[i] != 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+int main() {
+    
+    int t;
+    cin >> t;
+    while(t--){
+        string c, d;
+        cin >> c >> d;
+        if(isAnagram(c, d)) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}
+
