@@ -1,0 +1,30 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool isRotated(string str1, string str2)
+{
+    // Your code here
+    string str3 = str1 + str1;
+    size_t found = str3.find(str2);
+    if(found != string::npos){
+        return true;
+    }
+    return false;
+}
+
+int main() {
+	
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		string s;
+		string b;
+		cin>>s>>b;
+		cout<<isRotated(s,b)<<endl;
+	}
+	return 0;
+}
+
+
