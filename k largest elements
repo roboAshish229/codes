@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+void send(int arr[], int n, int p){
+    int pivot = arr[0];
+    int i=1, j=n-1;
+    while(i<=j){
+        while(arr[i] < pivot)
+            i++;
+        while(arr[j] >= pivot )
+            j--;
+        if(i<j){
+            swap(arr[i], arr[j]);
+            i++, j--;
+        }
+        if(i>j){
+            swap(arr[0],arr[j]);
+        }
+    }
+    sort(arr+(n-p), arr+n, greater<int>());
+    
+    for(int i=n-p;i<n;i++)
+        cout<<arr[i]<<" ";
+    
+    
+}
+
+int main() {
+	int t=0;
+	cin>>t;
+	while(t--){
+	    int n, p;
+	    cin>>n>>p;
+	    int arr[n];
+	    for(int i=0;i<n;i++){
+	        cin>>arr[i];
+	    }
+	    send(arr, n,p);
+	}
+	return 0;
+}
