@@ -1,0 +1,30 @@
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int maxsum(vector<int> A, int n){
+    int max_current ,max_global;
+    max_current = max_global = A[0];
+    for(int i= 1;i<n;i++){
+        max_current = max(A[i], max_current + A[i]);
+        if(max_current > max_global)
+            max_global = max_current;
+    }
+    return max_global;
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,a;
+	    cin>>n;
+	    vector<int> A;
+	    for(int i=0;i<n;i++){
+	        cin>>a;
+	        A.push_back(a);
+	    }
+	    cout<<maxsum(A,n)<<endl;
+	}
+	return 0;
+}
