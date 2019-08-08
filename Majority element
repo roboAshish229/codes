@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int majorityelement(vector<int> v){
+    unordered_map<int, int> map;
+    int n = v.size();
+    for(int i=0;i<n;i++)
+        map[v[i]]++;
+    for(auto a:map){
+        if(a.second>n/2)
+            return a.first;
+    }
+    return -1;
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,a;
+	    cin>>n;
+	    vector<int> A;
+	    for(int i=0;i<n;i++){
+	        cin>>a;
+	        A.push_back(a);
+	    }
+	    cout<<majorityelement(A)<<endl;
+	}
+	return 0;
+}
