@@ -1,0 +1,36 @@
+#include <iostream>
+#include<bits/stdc++.h>
+#include<unordered_map>
+#include<string.h>
+#include<algorithm>
+using namespace std;
+char counting(char *ch){
+    int n = strlen(ch);
+    unordered_map<char, int> umap;  
+    for(int i=0;i<n;i++){
+        if(ch[i] == 'a'|| ch[i] == 'e' || ch[i] == 'i' || ch[i] == 'o' || ch[i] == 'u')
+            umap[ch[i]] += 1;
+    }
+    //map<char, int>::iterator it;
+    int max1=0;
+    char c;
+    for(auto it : umap){
+        cout<<it.first<<" "<<it.second<<endl;
+        if(max1 < it.second){
+            max1 = it.second;
+            c = it.first;
+        }
+    }
+    return c;
+}
+int main(void){
+    // Your code here!
+    int n;
+    cin>>n;
+    char ch[n];
+    for(int i=0;i<n;i++){
+        cin>>ch[i];
+    }
+   cout<<counting(ch)<<endl;
+    
+}
