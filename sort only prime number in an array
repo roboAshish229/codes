@@ -1,0 +1,50 @@
+// C++ program to delete an element of a vector 
+// using erase() and reverse iterator. 
+
+#include <bits/stdc++.h> 
+
+using namespace std; 
+bool prime[100005];
+void SieveOfEratosthenes(int n) 
+{ 
+    memset(prime, true, sizeof(prime));
+    prime[1] = false;
+	for(int i=2;i*i<n;i++){
+        if(prime[i])
+            for(int j = i * 2;j<n;j=j+i)
+                prime[j] = false;
+	}
+} 
+void sortprime(int arr[], int n){
+    SieveOfEratosthenes(100005);
+    vector<int> v;
+    for(int i=0;i<n;i++)
+        if(prime[arr[i]])
+            v.push_back(arr[i]);
+    sort(v.begin(), v.end(), greater<int>());
+    int j=0;
+    for (int i = 0; i < n; i++) 
+        if (prime[arr[i]]) 
+            arr[i] = v[j++]; 
+    
+}
+
+int main() 
+{ 
+  int t=0;
+  cin>>t;
+  while(t--){
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+  
+    sortprime(arr, n); 
+  
+    // print the results. 
+    for (int i = 0; i < n; i++) { 
+        cout << arr[i] << " "; 
+    } 
+  
+    return 0; 
+} 
