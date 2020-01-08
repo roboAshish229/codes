@@ -1,0 +1,28 @@
+def encrypt_sentence(sentence):
+    #start writing your code here
+    result = []
+    vowels = ['A','a','E','e','I','i','O','o','U','u']
+    list_of_words = sentence.split()
+    for i in range(len(list_of_words)):
+        if not(i%2):
+            result.append(list_of_words[i][::-1])
+        else:
+            t = list(list_of_words[i])
+            for j in range(len(t)):
+                string = []
+                #print("jth element is ", t[j])
+                if t[j] in vowels:
+                    for k in range(j+1, len(t)):
+                        if not(t[k] in vowels):
+                            #print("t[j]", t[j],"t[k]", t[k])
+                            t[j], t[k] = t[k], t[j]
+                            #print("after swap", t)
+                            break
+            
+            s1 = ''.join(t)            
+            result.append(s1)
+    return " ".join(result)
+    
+sentence="The sun rises in the east"
+encrypted_sentence=encrypt_sentence(sentence)
+print(encrypted_sentence)
