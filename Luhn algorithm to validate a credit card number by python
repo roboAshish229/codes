@@ -1,0 +1,26 @@
+#PF-Assgn-58
+def validate_credit_card_number(card_number):
+    #start writing your code here
+    sum_of_digits = 0
+    string_card_number = str(card_number)
+    print(string_card_number[::-1])
+    for i in range(len(string_card_number)):
+        num = int(string_card_number[i])
+        if not(i%2):
+            num = num * 2
+            if(num>9):
+                sum1 = num//10 + num%10
+                sum_of_digits +=sum1
+            else:
+                sum_of_digits+=num
+        else:
+            sum_of_digits += num
+    #print(sum_of_digits)
+    return not(sum_of_digits%10)
+
+card_number = 1456734512345698 #4539869650133101  #1456734512345698 # #5239512608615007
+result=validate_credit_card_number(card_number)
+if(result):
+    print("credit card number is valid")
+else:
+    print("credit card number is invalid")
