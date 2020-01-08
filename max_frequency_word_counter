@@ -1,0 +1,32 @@
+#PF-Assgn-56
+import operator
+def max_frequency_word_counter(data):
+    word=""
+    frequency=0
+    data = data.lower()
+    list_word = data.split()
+    set_word = set(list_word)
+    my_dict = {}
+    for i in set_word:
+        my_dict[i] = 1
+    for i in list_word:
+        my_dict[i]+=1
+    #print(my_dict)
+    word = max(my_dict.items(), key=operator.itemgetter(1))[0]
+    frequency = my_dict[word]
+    for i,j in my_dict.items():
+        if j==frequency:
+            if len(i) > len(word):
+                word = i
+                frequency = my_dict[i]
+    frequency -=1
+    #start writing your code here
+    #Populate the variables: word and frequency
+    # Use the below given print statements to display the output
+    # Also, do not modify them for verification to work
+    print(word,frequency)
+
+
+#Provide different values for data and test your program.
+data="data Listen to the big clock Tick tock tick"
+max_frequency_word_counter(data)
