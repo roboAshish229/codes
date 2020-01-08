@@ -29,9 +29,9 @@ def rotations(num):
         if(temp == num):
             break
         round_number.append(temp)
-    print(round_number)
+    #print(round_number)
     return round_number
-rotations(179)
+#rotations(179)
 def get_circular_prime_count(limit):
     #remove pass and write your logic here.It should return the count of circular prime numbers below the given limit.
     count_prime=0
@@ -47,4 +47,4 @@ def get_circular_prime_count(limit):
     return count_prime-1
 #Provide different values for limit and test your program  
 #print(check_prime(12))
-#print(get_circular_prime_count(100))
+print(get_circular_prime_count(100))
