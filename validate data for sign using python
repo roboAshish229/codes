@@ -1,0 +1,60 @@
+#PF-Assgn-61
+import re
+def validate_name(name):
+    #Start writing your code here
+    len_name = len(name)
+    if len_name == 0 or len_name>15:
+        return False
+    elif not(name.isalpha()):
+        return False
+    else:
+        return True
+#print(validate_name("Tina"))
+
+def validate_phone_no(phno):
+    #Start writing your code here
+    len_phno = len(phno)
+    digit_list = []
+    if len_phno == 10:
+        if not(phno.isdigit()):
+            return False
+        for i in phno:
+            if i not in digit_list:
+                digit_list.append(i)
+        if len(digit_list) == 1:
+            return False
+        
+        return True
+    else:
+        return False
+#print(validate_phone_no("9999999999"))
+
+def validate_email_id(email_id):
+    #Start writing your code here
+    count_atrate=0
+    for i in email_id:
+        if '@' == i:
+            count_atrate+=1
+    if(count_atrate == 1):
+        if email_id.count(".com")==1:
+            if(re.search(r".com$",email_id) !=None):
+                if(re.search(r"@yahoo....|@gmail....|@hotmail....", email_id) != None):
+                    return True
+    return False
+#print(validate_email_id("ashish229.ddp@@gmail.com"))
+def validate_all(name,phone_no,email_id):
+    #Start writing your code here
+    # Use the below given print statements to display appropriate messages
+    # Also, do not modify them for verification to work
+    if not(validate_name(name)):
+        print("Invalid Name")
+    elif not(validate_phone_no(phone_no)):
+        print("Invalid phone number")
+    elif not(validate_email_id(email_id)):
+        print("Invalid email id")
+    else:
+        print("All the details are valid")
+
+
+#Provide different values for name, phone_no and email_id and test your program
+validate_all("Tina", "9994599998", "tina@yahoo.com")
