@@ -1,0 +1,24 @@
+
+def marathon_winner(steps, t, n):
+    count = [0]*3
+    sumn = [0]*3
+    index = 0
+    for i in range(0, t, 2):
+        for j in range(n):
+            sumn[j] += ((steps[j][i]+steps[j][i+1])*steps[j][t])
+        val = max(sumn)
+        for j in range(n):
+            if(sumn[j] == val):
+                count[j]+=1
+    return count.index(max(count))+1
+    
+n = int(input(""))
+t = int(input(""))
+steps = [[0]*(t+1)]*n
+for i in range(n):
+    steps[i] = list(map(int, input("").split()))
+print(marathon_winner(steps, t,n))
+for i in range(n):
+    for j in range(t+1):
+        print(steps[i][j],end=" ")
+    print()
