@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#include <boost/math/common_factor.hpp> 
+using namespace std;
+int main(){
+    int t,n=0;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        int arr[n];
+        set<int> s;
+        for(int i=1;i<=n;i++)
+            cin>>arr[i];
+        int count=0;
+        int block=0, current=0;
+        for(int i=1;i<=n;i++){
+            if(arr[i] == 0)
+                continue;
+            count=0;
+            block= i;
+            current = i;
+            while(true){
+                current = arr[current];
+                arr[block] = 0;
+                block = current;
+                count++;
+                if(current == i)
+                    break;
+            }
+            s.insert(count);
+        }
+        for(int j:s)
+            cout<<j<<endl;
+        auto it = s.begin();
+        int x= *it++;
+        for (; it != s.end(); ++it){
+            x = boost::math::lcm(x, *it);
+        } 
+        cout<<x<<"the steps"<<"\n";
+             
+    }
+}
