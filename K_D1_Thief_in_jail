@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n, x, y;
+	cin>>n;
+	int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cin>>x>>y;
+    int count=0,temp;
+    for(int i=0;i<n;i++){
+        if(arr[i] == x || arr[i] == (x-y)){
+            count++;
+        }
+        else
+        count += arr[i]/(x-y)+1;
+        //cout<<count<<"\n";
+        
+    }
+    cout<<count<<endl;
+}   
