@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int count=0;
+    int arr[50];
+    for(int i=0;i<50;i++){
+        count+=i;
+        arr[i] = count;
+        //cout<<arr[i]<<" ";
+    }
+	int n, x;
+	cin>>n>>x;
+	int day;
+	int temp = x%5000;
+	for(int i=0;i<50;i++){
+	    if(temp == arr[i]){
+	        day = i;
+	        break;
+	    }
+	}
+	x -= (day*5000);
+	int p = x/5000;
+	cout<<p<<endl;
+	
+	
+}   
