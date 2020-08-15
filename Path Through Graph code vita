@@ -1,0 +1,38 @@
+import math
+def Find_largestFactor(number1):
+    number = number1
+    if (number%2==0):
+        return number/2
+    stop = math.sqrt(number)
+    i = 3
+    while( i<=stop):
+        if(number%i == 0):
+            return number/i
+        i+=2
+    return 1 if number1 == number else number
+
+x,y=map(int,input().split())
+
+if x>y:
+    m = x
+    n = y
+else:
+    m = y
+    n = x
+flag = 0
+count=0
+while(m!=1 and m!=n):
+    m = Find_largestFactor(m)
+    if(m == n):
+        flag =1
+        break
+    count+=1
+while(n!=1 and flag == 0):
+    n = Find_largestFactor(n)
+    count+=1
+if x == y:
+  	print(0)
+elif flag ==1:
+    print(count+1)
+else:
+    print(count)
