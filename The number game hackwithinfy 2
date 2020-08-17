@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+typedef long long int lli;
+using namespace std;
+ 
+int main()
+{
+    lli i,j,k,n,m,t,a,b,ans,cnt;
+ 
+    cin>>t;
+ 
+    while(t--)
+    {
+        cin>>a>>b;
+ 
+        cnt=0;
+        map<lli,lli>mp;
+ 
+        mp[b]=0;
+ 
+        while(b>0)
+        {
+            cnt++;
+ 
+            if(b & 1)
+            {
+                b-=1;
+            }
+            else
+            {
+                b/=2;
+            }
+ 
+            mp[b]=cnt;
+        }
+ 
+        cnt=0;
+ 
+        while(a>0)
+        {
+            if(mp.count(a))
+            {
+                ans=mp[a]+cnt;
+                cout<<a<<"hello"<<cnt<<"map[a]"<<mp[a]<<"\n";
+                break;
+            }
+ 
+            if(a & 1)
+            {
+                a-=1;
+            }
+            else
+            {
+                a/=2;
+            }
+ 
+            cnt++;
+ 
+        }
+ 
+        cout<<ans<<"\n";
+    }
+}
